@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>palabras Count Results</title>
+  </head>
+  <body>
+    <h1>palabras Count Results</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>URL</th>
+          <th>palabras</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for document in documents %}
+        <tr>
+          <td>{{ document.url }}</td>
+          <td>
+            <ul>
+              {% for palabras, count, rank in document.palabras %}
+              <li>{{ rank }}. {{ palabras }}: {{ count }}</li>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
